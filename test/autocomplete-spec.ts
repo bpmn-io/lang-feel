@@ -128,7 +128,6 @@ describe('feel completion', function() {
 
     it('does not complete snippet inside <pathExpression>', check({
       doc: '{ a: 1 }.',
-      selection: 8,
       expectedCompletions: [
         { label: 'if', excluded: true },
         { label: 'context', excluded: true }
