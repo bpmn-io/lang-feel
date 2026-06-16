@@ -135,6 +135,12 @@ describe('feel completion', function() {
     }));
 
 
+    it('does not complete snippet inside nested <pathExpression>', check({
+      doc: 'a.b.',
+      expectedCompletions: []
+    }));
+
+
     it('does not complete inside <context>', check({
       doc: '{  }',
       selection: 2,
