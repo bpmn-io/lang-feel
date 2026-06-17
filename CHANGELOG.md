@@ -10,6 +10,8 @@ ___Note:__ Yet to be released changes appear here._
 
 ## 4.0.1
 
+_Sync with upstream `lang-feel@4.0.1`_
+
 * `FIX`: auto complete literal values from partial tokens ([#34](https://github.com/nikku/lang-feel/pull/34))
 * `DEPS`: update `@codemirror` dependencies
 * `DEPS`: update to `@bpmn-io/lezer-feel@3.0.1`
