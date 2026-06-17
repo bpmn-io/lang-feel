@@ -2,14 +2,12 @@
 // any of [ 'ChromeHeadless', 'Chrome', 'Firefox' ]
 const browsers = (process.env.TEST_BROWSERS || 'ChromeHeadless').split(',');
 
-// use puppeteer provided Chrome for testing
-process.env.CHROME_BIN = require('puppeteer').executablePath();
-
 var singleStart = process.env.SINGLE_START;
 
 const suite = 'test/bundle.ts';
 
 module.exports = function(karma) {
+
   const config = {
 
     frameworks: [
