@@ -6,6 +6,11 @@ All notable changes to [lang-feel](https://github.com/nikku/lang-feel) are docum
 
 ___Note:__ Yet to be released changes appear here._
 
+## 4.0.2
+
+* `FIX`: auto complete any snippet from partial tokens ([#https://github.com/nikku/lang-feel/pull/36](https://github.com/nikku/lang-feel/pull/36))
+* `CHORE`: don't override snippet `type` forcefully
+
 ## 4.0.1
 
 * `FIX`: auto complete literal values from partial tokens ([#34](https://github.com/nikku/lang-feel/pull/34))
