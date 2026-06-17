@@ -8,6 +8,11 @@ Note: Versions prior to `2.4.0` were released in [nikku/lang-feel](https://githu
 
 ___Note:__ Yet to be released changes appear here._
 
+## 4.0.2
+
+* `FIX`: auto complete any snippet from partial tokens ([nikku/lang-feel#36](https://github.com/nikku/lang-feel/pull/36))
+* `CHORE`: don't override snippet `type` forcefully
+
 ## 4.0.1
 
 _Sync with upstream `lang-feel@4.0.1`_
