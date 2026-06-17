@@ -6,6 +6,12 @@ All notable changes to [lang-feel](https://github.com/nikku/lang-feel) are docum
 
 ___Note:__ Yet to be released changes appear here._
 
+## 4.0.1
+
+* `FIX`: auto complete literal values from partial tokens ([#34](https://github.com/nikku/lang-feel/pull/34))
+* `DEPS`: update `@codemirror` dependencies
+* `DEPS`: update to `lezer-feel@3.0.1`
+
 ## 4.0.0
 
 * `DEPS`: update to `lezer-feel@3.0.0`
