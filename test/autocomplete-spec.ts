@@ -1,5 +1,5 @@
 import { EditorSelection, EditorState } from '@codemirror/state';
-import { feel } from '@bpmn-io/lang-feel';
+import { feel, snippetCompletion } from '@bpmn-io/lang-feel';
 import { CompletionSource, autocompletion, currentCompletions, startCompletion } from '@codemirror/autocomplete';
 import { EditorView } from '@codemirror/view';
 import { basicSetup } from 'codemirror';
@@ -97,6 +97,33 @@ describe('feel completion', function() {
     }));
 
 
+    it('completes <null> literal value', check({
+      doc: 'nu',
+      selection: 2,
+      expectedCompletions: [
+        { label: 'null' }
+      ]
+    }));
+
+
+    it('completes <true> literal value', check({
+      doc: 'tr',
+      selection: 2,
+      expectedCompletions: [
+        { label: 'true' }
+      ]
+    }));
+
+
+    it('completes <false> literal value', check({
+      doc: 'fa',
+      selection: 2,
+      expectedCompletions: [
+        { label: 'false' }
+      ]
+    }));
+
+
     it('does not complete snippet inside <in expression> key', check({
       doc: 'for c in b return',
       selection: 5,
@@ -128,11 +155,16 @@ describe('feel completion', function() {
 
     it('does not complete snippet inside <pathExpression>', check({
       doc: '{ a: 1 }.',
-      selection: 8,
       expectedCompletions: [
         { label: 'if', excluded: true },
         { label: 'context', excluded: true }
       ]
+    }));
+
+
+    it('does not complete snippet inside nested <pathExpression>', check({
+      doc: 'a.b.',
+      expectedCompletions: []
     }));
 
 
@@ -191,6 +223,63 @@ describe('feel completion', function() {
         { label: 'if', excluded: true },
         { label: 'some', excluded: true },
         { label: 'every', excluded: true }
+      ]
+    }));
+
+  });
+
+
+  describe('snippet completion', function() {
+
+    it('combines literal and regular completions', check({
+      doc: '',
+      config: {
+        completions: [
+          snippetCompletion([
+            { label: 'myRegular' },
+            { label: 'myLiteral', detail: 'literal' }
+          ])
+        ]
+      },
+      expectedCompletions: [
+        { label: 'myRegular' },
+        { label: 'myLiteral' }
+      ]
+    }));
+
+
+    it('completes only literal completions inside identifier', check({
+      doc: 'my',
+      selection: 2,
+      config: {
+        completions: [
+          snippetCompletion([
+            { label: 'myRegular' },
+            { label: 'myLiteral', detail: 'literal' }
+          ])
+        ]
+      },
+      expectedCompletions: [
+        { label: 'myRegular', excluded: true },
+        { label: 'myLiteral' }
+      ]
+    }));
+
+
+    it('returns no completion if context does not match', check({
+      doc: '"foo"',
+      selection: 2,
+      config: {
+        completions: [
+          snippetCompletion([
+            { label: 'myRegular' },
+            { label: 'myLiteral', detail: 'literal' }
+          ])
+        ]
+      },
+      expectedCompletions: [
+        { label: 'myRegular', excluded: true },
+        { label: 'myLiteral', excluded: true }
       ]
     }));
 

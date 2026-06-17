@@ -8,9 +8,15 @@ Note: Versions prior to `2.4.0` were released in [nikku/lang-feel](https://githu
 
 ___Note:__ Yet to be released changes appear here._
 
+## 4.0.1
+
+* `FIX`: auto complete literal values from partial tokens ([#34](https://github.com/nikku/lang-feel/pull/34))
+* `DEPS`: update `@codemirror` dependencies
+* `DEPS`: update to `@bpmn-io/lezer-feel@3.0.1`
+
 ## 4.0.0
 
-* `DEPS`: update to `lezer-feel@3.0.0`
+* `DEPS`: update to `@bpmn-io/lezer-feel@3.0.0`
 * `DEPS`: update to `min-dom@5.3.0`
 * `DEPS`: update `@codemirror` dependencies
 * `DEPS`: update to `@lezer/common@1.5.2`
